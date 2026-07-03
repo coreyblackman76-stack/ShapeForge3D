@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#061014" />
+  <title>ShapeForge³ | AI 3D Creation, Scanning & Printing</title>
+  <meta name="description" content="ShapeForge³ turns ideas, photos and phone scans into printable 3D models. Print at home or order finished prints." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <a class="brand" href="#home" aria-label="ShapeForge home"><span class="mark">✣</span><span>ShapeForge<sup>3</sup></span></a>
+    <button class="hamburger" id="menuBtn" aria-label="Open menu">☰</button>
+    <nav id="nav">
+      <a href="#features">Features</a>
+      <a href="#studio">AI Studio</a>
+      <a href="#scan">Phone Scan</a>
+      <a href="#print">Print Centre</a>
+      <a href="#market">Marketplace</a>
+      <a href="#subscriptions">Vault</a>
+      <a href="#dashboard">Dashboard</a>
+      <a class="navCta" href="#pricing">Get Started</a>
+    </nav>
+  </header>
+
+  <main id="home">
+    <section class="hero">
+      <div class="heroCopy">
+        <span class="chip">AI powered 3D creation</span>
+        <h1>Imagine It.<br>Shape It. <em>Print It.</em></h1>
+        <p class="lead">Create 3D models from text, images and guided phone scans. Download STL, OBJ and 3MF files for your own printer, or order a finished print from ShapeForge³.</p>
+        <div class="heroActions">
+          <a class="btn primary" href="#studio">Start creating, free</a>
+          <a class="btn ghost" href="#scan">Take photo / video scan</a>
+        </div>
+        <div class="metrics">
+          <strong>Text → 3D</strong><strong>Phone Scan</strong><strong>Print at Home</strong><strong>We Print It</strong>
+        </div>
+      </div>
+      <div class="heroVisual" aria-label="3D model preview mockup">
+        <div class="dragon">🐉</div>
+        <div class="floatCard top"><b>Model ready</b><span>STL • OBJ • 3MF</span></div>
+        <div class="floatCard bottom"><b>Printability</b><span>Watertight ✓ Supports ✓</span></div>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="sectionHead"><span class="chip">Everything in one platform</span><h2>From idea to finished product.</h2></div>
+      <div class="featureGrid">
+        <article><span>🔤</span><h3>Text to 3D</h3><p>Describe any object and generate a clear model brief ready for AI backend connection.</p></article>
+        <article><span>🖼️</span><h3>Image to 3D</h3><p>Upload reference images and prepare them for conversion into printable geometry.</p></article>
+        <article><span>📸</span><h3>Photo capture</h3><p>Big, obvious camera buttons for taking photos on mobile devices.</p></article>
+        <article><span>🎥</span><h3>Video scan</h3><p>Record a 360° object scan that can later feed photogrammetry or LiDAR processing.</p></article>
+        <article><span>🧰</span><h3>3D repair tools</h3><p>Watertight checks, wall thickness notes, scale review and support planning.</p></article>
+        <article><span>🖨️</span><h3>Print options</h3><p>Customers can print at home or choose ShapeForge³ print and delivery.</p></article>
+      </div>
+    </section>
+
+    <section id="studio" class="section workspace">
+      <div class="panel studioPanel">
+        <div class="panelTop"><h2>AI Studio</h2><span class="statusLive">Preview UI</span></div>
+        <label>Text prompt</label>
+        <textarea id="prompt" placeholder="Example: wall-mounted Makita battery holder with four screw holes"></textarea>
+        <div class="toolRow">
+          <button class="btn primary" id="generateBrief">Generate 3D brief</button>
+          <button class="btn" id="repairBtn">Printability check</button>
+          <label class="btn file">Upload image<input type="file" id="imageInput" accept="image/*" hidden></label>
+        </div>
+        <pre id="briefOut">Your model brief, print settings and next steps will appear here.</pre>
+      </div>
+      <div class="modelViewer">
+        <div class="viewerBar"><span></span><span></span><span></span></div>
+        <div class="viewerObject">⚙️</div>
+        <div class="viewerStats"><p>Triangles: 52,064</p><p>Wall: Good</p><p>Formats: STL / 3MF / OBJ</p></div>
+      </div>
+    </section>
+
+    <section id="scan" class="section scanLayout">
+      <div class="phoneMock">
+        <div class="phoneTop">ShapeForge Scan</div>
+        <div class="scanWindow" id="cameraMock"><span>📷</span><b>Scanner ready</b></div>
+        <div class="scanProgress"><i></i></div>
+      </div>
+      <div class="scanCopy">
+        <span class="chip">Mobile capture</span>
+        <h2>Take photos or record a video scan.</h2>
+        <p>Designed for customers on phones. Capture a real object, upload existing media, then choose AI conversion, print-at-home files, or ShapeForge³ printing.</p>
+        <div class="toolRow wrap">
+          <button class="btn primary" id="takePhoto">📸 Take Photo</button>
+          <button class="btn primary" id="recordVideo">🎥 Record Video Scan</button>
+          <label class="btn file">⬆️ Upload Photo<input id="photoUpload" type="file" accept="image/*" hidden></label>
+          <label class="btn file">⬆️ Upload Video<input id="videoUpload" type="file" accept="video/*" hidden></label>
+        </div>
+        <p class="scanStatus" id="scanStatus">Ready to capture.</p>
+      </div>
+    </section>
+
+    <section id="print" class="section printCentre">
+      <div class="sectionHead"><span class="chip">Print centre</span><h2>Download files or let us print it.</h2></div>
+      <div class="printGrid">
+        <article class="panel">
+          <h3>Print at Home</h3>
+          <p>Export STL, OBJ and 3MF files for personal printers.</p>
+          <div class="formatRow"><span>STL</span><span>OBJ</span><span>3MF</span><span>STEP*</span></div>
+          <button class="btn">Prepare download</button>
+        </article>
+        <article class="panel quoteBox">
+          <h3>We Print It</h3>
+          <label>Material</label><select id="material"><option>PLA</option><option>PETG</option><option>ABS</option><option>Resin</option><option>Nylon</option><option>TPU</option></select>
+          <label>Weight estimate (grams)</label><input id="grams" type="number" min="1" value="85">
+          <label>Quantity</label><input id="qty" type="number" min="1" value="1">
+          <button class="btn primary" id="quoteBtn">Calculate instant quote</button>
+          <strong id="quoteOut">Quote: $0.00</strong>
+        </article>
+        <article class="panel">
+          <h3>Order Workflow</h3>
+          <ol>
+            <li>Upload or create model</li><li>Choose material and colour</li><li>Approve quote</li><li>Print queue and tracking</li>
+          </ol>
+          <button class="btn primary">Submit print order</button>
+        </article>
+      </div>
+    </section>
+
+    <section id="market" class="section">
+      <div class="sectionHead"><span class="chip">Marketplace & vault</span><h2>Free starter files and subscriber model vault.</h2></div>
+      <div class="vaultHero">
+        <div class="panel">
+          <h3>ShapeForge Free Starter Printable</h3>
+          <p>Includes an original starter STL placeholder customers can try for free. Replace it with your final branded test print any time.</p>
+          <a class="btn primary" href="assets/models/shapeforge-starter-token.stl" download>Download free starter STL</a>
+        </div>
+        <div class="panel">
+          <h3>Subscriber Free Model Vault</h3>
+          <p>A curated catalogue of public/free model sources with creator and licence notes. We link to sources instead of copying files without permission.</p>
+          <button class="btn" id="loadModels">Load vault catalogue</button>
+        </div>
+      </div>
+      <div class="toolbar"><input id="searchModels" placeholder="Search dragons, tools, printer tests, NASA, NIH, licence..."><button class="btn">Search</button></div>
+      <div class="modelGrid" id="modelGrid"></div>
+    </section>
+
+
+    <section id="subscriptions" class="section subscriptionMatrix">
+      <div class="sectionHead"><span class="chip">Library access</span><h2>Basic files free. Better files unlock with subscription.</h2></div>
+      <div class="accessGrid">
+        <article class="panel"><h3>Free Starter</h3><p>Original ShapeForge starter files, calibration prints, basic holders and public catalogue browsing.</p><ul><li>Free STL starter downloads</li><li>Basic scan demo</li><li>Print-at-home for free models</li></ul></article>
+        <article class="panel glow"><h3>Subscriber Vault</h3><p>Curated model vault with licence records, better designs, print settings and ShapeForge print-order access.</p><ul><li>Subscriber free-model vault</li><li>Better practical models</li><li>Discounted ShapeForge printing</li></ul></article>
+        <article class="panel"><h3>Pro Originals</h3><p>Exclusive ShapeForge-owned model packs that can be sold, printed and bundled safely once created/commissioned.</p><ul><li>Premium packs</li><li>Commercial-use options</li><li>Creator marketplace access</li></ul></article>
+      </div>
+    </section>
+
+    <section id="legal" class="section legalFlow">
+      <div class="sectionHead"><span class="chip">Licence safe growth</span><h2>No stolen model swamp. Build a clean vault.</h2></div>
+      <div class="printGrid">
+        <article class="panel"><h3>1. Catalogue</h3><p>We list sources, categories, creators, licences and URLs. This lets users find models without copying files unlawfully.</p></article>
+        <article class="panel"><h3>2. Verify</h3><p>Only models marked commercial-allowed, partner-approved, or ShapeForge-owned can be sold or printed commercially.</p></article>
+        <article class="panel"><h3>3. Monetise</h3><p>Free basics bring users in. Subscriptions unlock premium originals, partner models, print discounts and business tools.</p></article>
+      </div>
+    </section>
+
+    <section id="backend" class="section dashboard">
+      <div class="sectionHead"><span class="chip">Next build stage</span><h2>Production system roadmap bundled in.</h2></div>
+      <div class="featureGrid">
+        <article><span>👤</span><h3>User accounts</h3><p>Ready for Supabase/Firebase login, saved projects and subscription status.</p></article>
+        <article><span>💳</span><h3>Payments</h3><p>Stripe checkout plan for subscriptions, paid models and print orders.</p></article>
+        <article><span>🧊</span><h3>3D viewer</h3><p>Three.js-ready area for STL/OBJ/3MF previews and model inspection.</p></article>
+        <article><span>☁️</span><h3>Cloud storage</h3><p>Model upload, media scan uploads, project files and print-job attachments.</p></article>
+        <article><span>🖨️</span><h3>Printer queue</h3><p>Admin workflow for material, colour, status, production notes and tracking.</p></article>
+        <article><span>🤝</span><h3>Partner library</h3><p>Creator opt-in, royalties, commercial licence flags and takedown process.</p></article>
+      </div>
+    </section>
+
+    <section id="dashboard" class="section dashboard">
+      <div class="dashShell">
+        <aside><b>ShapeForge³</b><a>Dashboard</a><a>AI Studio</a><a>Projects</a><a>Print Centre</a><a>Orders</a><a>Marketplace</a></aside>
+        <div class="dashMain">
+          <h2>Welcome back, Corey! 👋</h2>
+          <div class="quickActions"><button>Text to 3D</button><button>Image to 3D</button><button>Phone Scan</button><button>New Project</button></div>
+          <div class="statGrid"><div><b>23</b><span>Models</span></div><div><b>14</b><span>Projects</span></div><div><b>8</b><span>Orders</span></div><div><b>$320</b><span>Saved</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="pricing" class="section pricing">
+      <div class="sectionHead"><span class="chip">Plans</span><h2>Start free. Upgrade for serious making.</h2></div>
+      <div class="priceGrid">
+        <article><h3>Free</h3><b>$0</b><p>Starter STL, scan demo, public catalogue.</p><button class="btn">Start free</button></article>
+        <article class="hot"><h3>Maker</h3><b>$19/mo</b><p>Model vault, saved projects, print discounts.</p><button class="btn primary">Start trial</button></article>
+        <article><h3>Studio</h3><b>$49/mo</b><p>Business dashboard, team tools, priority print queue.</p><button class="btn">Go studio</button></article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <b>ShapeForge<sup>3</sup></b><span>Imagine. Create. Print.</span><span>Prototype front-end ready for backend AI, payments and print management.</span>
+  </footer>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
