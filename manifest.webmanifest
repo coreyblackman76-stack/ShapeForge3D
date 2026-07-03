@@ -1,0 +1,10 @@
+{
+  "name": "ShapeForge³",
+  "short_name": "ShapeForge³",
+  "description": "AI 3D creation, phone scanning, model marketplace and print centre.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#03070b",
+  "theme_color": "#28f6ff",
+  "icons": []
+}
