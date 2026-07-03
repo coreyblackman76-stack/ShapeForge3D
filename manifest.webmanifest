@@ -1,0 +1,21 @@
+{
+  "name": "ShapeForge 3D",
+  "short_name": "ShapeForge",
+  "description": "AI-powered 3D creation, scanning, print-at-home downloads and print-for-me ordering.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#06080d",
+  "theme_color": "#59ffb7",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
