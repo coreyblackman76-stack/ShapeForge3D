@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ShapeForge 3D | Scan. Create. Print. Anywhere.</title>
+  <meta name="description" content="ShapeForge 3D is an AI-powered 3D creation, scanning, model marketplace and print ordering platform. Users can download printable files or order prints from us." />
+  <meta name="theme-color" content="#59ffb7" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="ShapeForge 3D" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="icons/icon-192.png" />
+  <link rel="apple-touch-icon" href="icons/icon-192.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#"><span class="mark">⬢</span><span>ShapeForge 3D</span></a>
+    <nav>
+      <a href="#studio">AI Studio</a><a href="#scan">Scan</a><a href="#print-flow">Print</a><a href="#library">Library</a><a href="#marketplace">Marketplace</a><a href="#dashboard">Dashboard</a>
+    </nav>
+    <button class="btn small" id="installApp" type="button">Install App</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">AI 3D creation • mobile scanning • print ordering</p>
+        <h1>Scan it. Forge it. Print it.</h1>
+        <p class="lead">ShapeForge 3D helps customers create, repair, download and order printable models from one clean app. Home printers get files. Customers without printers get parts printed by you.</p>
+        <div class="actions"><a class="btn" href="#studio">Start creating</a><a class="btn ghost" href="#print-flow">Choose print option</a><button class="btn ghost" id="installHero" type="button">Install app</button></div>
+        <div class="trust"><span>STL</span><span>OBJ</span><span>3MF</span><span>STEP brief</span><span>PLA</span><span>PETG</span><span>Resin</span><span>Nylon</span></div>
+      </div>
+      <div class="forge-card">
+        <div class="holo"><div class="cube3d"></div></div>
+        <div class="stats"><b>Printable workflow</b><span>AI brief → file check → quote → download or order</span></div>
+      </div>
+    </section>
+
+    <section class="section brand-panel">
+      <div>
+        <p class="eyebrow">Brand launch pack</p>
+        <h2>ShapeForge 3D</h2>
+        <p class="lead"><b>Tagline:</b> Scan. Create. Print. Anywhere.</p>
+        <p class="lead"><b>Promotional line:</b> Turn ideas, photos and real-world objects into 3D printable products, then print at home or have ShapeForge 3D manufacture and ship them.</p>
+      </div>
+      <div class="ad-card"><span>LAUNCH AD</span><h3>From phone scan to finished part</h3><p>Create models, search licensed files, check printability, download for your printer or order a professional print.</p></div>
+    </section>
+
+    <section id="features" class="section">
+      <h2>Platform features</h2>
+      <div class="grid cards">
+        <article><b>Text → 3D</b><p>Users describe an idea and generate a clean model brief for AI/CAD production.</p></article>
+        <article><b>Image → 3D</b><p>Upload sketches, photos, logos or references and build a print-ready project.</p></article>
+        <article><b>Phone Scan → 3D</b><p>Guided multi-angle scanning with camera access, scale notes and cleanup instructions.</p></article>
+        <article><b>Print at Home</b><p>Download STL, OBJ or 3MF workflow with printer and slicer notes.</p></article>
+        <article><b>Print for Me</b><p>Customers choose material, colour, quality, quantity and shipping for you to print.</p></article>
+        <article><b>Printability Checker</b><p>Wall thickness, scale, supports, mesh watertightness and overhang checklist.</p></article>
+        <article><b>Model Library</b><p>Search legal 3D model sources and track licences before use.</p></article>
+        <article><b>Creator Marketplace</b><p>Sell designs, feature creators, favourites, royalties and commercial licensing screens.</p></article>
+        <article><b>Admin Dashboard</b><p>Orders, customers, printer queue, materials, revenue and support overview.</p></article>
+      </div>
+    </section>
+
+    <section id="studio" class="section studio">
+      <div>
+        <p class="eyebrow">AI Studio</p><h2>Create a printable project</h2>
+        <label>Describe the model</label>
+        <textarea id="prompt" placeholder="Example: A rugged mining loader keyring with big tyre tread, ShapeForge logo on the side, printable in PETG"></textarea>
+        <label>Upload reference image or model file</label>
+        <input id="file" type="file" accept="image/*,.stl,.obj,.3mf,.step,.stp" />
+        <div class="row"><select id="style"><option>Product prototype</option><option>Replacement part</option><option>Toy / figurine</option><option>Sign / logo</option><option>Mechanical bracket</option><option>Home organiser</option></select><button class="btn" id="generate" type="button">Generate Brief</button></div>
+      </div>
+      <div class="output"><h3>Model Brief</h3><pre id="brief">Your printable model brief will appear here.</pre><div id="preview"></div></div>
+    </section>
+
+    <section id="scan" class="section phone-scan">
+      <div class="scan-copy">
+        <p class="eyebrow">Mobile scanning</p><h2>Use the phone camera to start a 3D scan job.</h2>
+        <p>For real 3D reconstruction, this V1 captures the customer workflow and project data. Later it can connect to photogrammetry, LiDAR, Gaussian splat, NeRF or CAD cleanup services.</p>
+        <div class="scan-steps"><span>1. Place object on a plain background</span><span>2. Capture 20 to 60 angles</span><span>3. Add scale reference</span><span>4. Submit for model cleanup</span></div>
+      </div>
+      <div class="scanner-card">
+        <video id="cameraPreview" playsinline muted></video>
+        <div class="scan-actions"><button class="btn" id="startScan" type="button">Open Camera</button><button class="btn ghost" id="stopScan" type="button">Stop Camera</button></div>
+        <label>Scan notes</label><textarea id="scanNotes" placeholder="Example: Scan this broken plastic clip and make it stronger for PETG printing."></textarea>
+        <button class="btn full" id="scanBriefBtn" type="button">Create Scan Brief</button><pre id="scanBrief">Your mobile scan brief will appear here.</pre>
+      </div>
+    </section>
+
+    <section id="print-flow" class="section split">
+      <div><p class="eyebrow">Customer choice</p><h2>Print at home or let us print it.</h2><p class="lead">This is the money engine. Customers can download files for their own printer, or select print settings and place an order for your workshop.</p></div>
+      <div class="choice-grid">
+        <article class="choice"><h3>🖨 Print at Home</h3><p>Export model files, use slicer notes, check printer settings and send to Bambu, Creality, Prusa, Anycubic, Elegoo or other printers.</p><button class="btn ghost" data-mode="home">Build download pack</button></article>
+        <article class="choice"><h3>📦 ShapeForge Prints It</h3><p>Choose material, colour, finish, quality, infill, quantity and delivery. Creates an order brief for production.</p><button class="btn" data-mode="us">Build print order</button></article>
+      </div>
+      <pre id="printPlan">Choose an option to build the customer workflow.</pre>
+    </section>
+
+    <section id="quote" class="section quote">
+      <div><p class="eyebrow">Instant estimate</p><h2>Print quote calculator</h2><p>Customer-facing estimate for print-for-me orders. Hook this to Stripe and a backend later.</p></div>
+      <form id="quoteForm">
+        <input id="name" placeholder="Name" required><input id="email" placeholder="Email" type="email" required>
+        <select id="material"><option value="0.18">PLA</option><option value="0.24">PETG</option><option value="0.42">Resin</option><option value="0.55">Nylon</option><option value="0.75">Carbon fibre nylon</option></select>
+        <select id="finish"><option value="0">Standard finish</option><option value="12">Fine finish +$12</option><option value="25">Paint prep +$25</option></select>
+        <input id="grams" type="number" min="10" value="120" placeholder="Estimated grams"><input id="qty" type="number" min="1" value="1" placeholder="Quantity">
+        <button class="btn" type="submit">Calculate Quote</button><p id="quoteResult"></p>
+      </form>
+    </section>
+
+    <section id="library" class="section model-library">
+      <div class="library-head"><div><p class="eyebrow">STL • OBJ • 3MF finder</p><h2>Legal model catalogue</h2><p class="lead">Search model sources without copying files into your app. Each model must be checked for licence before commercial printing or re-hosting.</p></div><div class="license-box"><b>Important</b><p>ShapeForge 3D links to sources and records licence notes. It does not bundle other people’s files.</p></div></div>
+      <div class="library-tools"><input id="librarySearch" placeholder="Search: tools, NASA, medical, dragon, Benchy, phone stand, public domain..."><select id="libraryFilter"><option value="all">All</option><option>STL</option><option>OBJ</option><option>3MF</option><option>Public Domain</option><option>Creative Commons</option><option>Commercial</option></select></div>
+      <div id="libraryResults" class="grid cards library-results"></div>
+    </section>
+
+    <section id="marketplace" class="section marketplace">
+      <p class="eyebrow">Creator marketplace</p><h2>Sell designs and print products</h2>
+      <div class="grid cards"><article><b>Creator shops</b><p>Designers upload models, set prices and licence options.</p></article><article><b>Royalties</b><p>Track sales, downloads and print-order royalties.</p></article><article><b>Collections</b><p>Featured products: tools, toys, automotive, mining, home, cosplay and prototypes.</p></article></div>
+    </section>
+
+    <section id="dashboard" class="section dashboard">
+      <p class="eyebrow">Business control room</p><h2>Admin dashboard mockup</h2>
+      <div class="dash-grid"><div><b>New Orders</b><strong>18</strong><span>7 need quote review</span></div><div><b>Queued Prints</b><strong>42h</strong><span>Estimated machine time</span></div><div><b>Material Stock</b><strong>86%</strong><span>PLA/PETG/resin available</span></div><div><b>Monthly Revenue</b><strong>$12.4k</strong><span>Demo placeholder</span></div></div>
+      <div class="table"><div><b>Order</b><b>Customer</b><b>Job</b><b>Status</b></div><div><span>#1042</span><span>Walk-in customer</span><span>Phone scan bracket</span><span>Quote sent</span></div><div><span>#1043</span><span>Creator sale</span><span>3MF planter</span><span>Ready to print</span></div><div><span>#1044</span><span>Business user</span><span>Prototype housing</span><span>CAD cleanup</span></div></div>
+    </section>
+
+    <section id="pricing" class="section pricing">
+      <h2>Subscriptions</h2>
+      <div class="grid cards price-cards"><article><h3>Free</h3><p class="price">$0</p><p>Search models, basic quotes and saved ideas.</p></article><article class="featured"><h3>Creator</h3><p class="price">$19/mo</p><p>More AI briefs, portfolio, marketplace listing and favourites.</p></article><article><h3>Business</h3><p class="price">$99/mo</p><p>Order management, print queue, team account and priority support.</p></article></div>
+    </section>
+
+    <section class="section marketing-kit"><p class="eyebrow">Marketing copy</p><h2>Ready-to-use ads</h2><div class="grid cards"><article><b>Facebook / Instagram</b><p>Turn photos, sketches and ideas into 3D printed products. Download files for your own printer or let ShapeForge 3D print and ship them.</p></article><article><b>TikTok hook</b><p>I scanned this with my phone, turned it into a 3D model, and printed the part. This is ShapeForge 3D.</p></article><article><b>Google ad</b><p>AI 3D printing platform. Create, repair, download or order custom 3D prints online.</p></article></div></section>
+  </main>
+  <footer>© <span id="year"></span> ShapeForge 3D · Scan. Create. Print. Anywhere.</footer>
+  <script src="script.js"></script>
+</body>
+</html>
