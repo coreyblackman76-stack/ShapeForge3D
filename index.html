@@ -1,54 +1,96 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>ShapeForge³ | AI 3D Creation & Printing</title>
-  <meta name="description" content="ShapeForge³ is an AI powered 3D creation, scanning, model vault, marketplace and print ordering platform." />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07120f" />
+  <title>ShapeForge³ | Sprint 2</title>
   <link rel="manifest" href="manifest.webmanifest" />
-  <style>
-    :root{--bg:#02070b;--panel:#07131b;--panel2:#0b1b24;--line:#16323f;--text:#f4fbff;--muted:#9eb4c0;--green:#8cff00;--cyan:#16ffd1;--gold:#ffbd28;--purple:#9d6cff;--shadow:0 20px 70px rgba(0,0,0,.55)}
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at 50% 0,#123044 0,#061018 32%,#02070b 70%);color:var(--text);font-family:Inter,Arial,Helvetica,sans-serif;overflow-x:hidden} a{color:inherit;text-decoration:none} button,input,select,textarea{font:inherit} .app{display:grid;grid-template-columns:238px 1fr;min-height:100vh}.sidebar{position:sticky;top:0;height:100vh;padding:18px;background:linear-gradient(180deg,rgba(7,19,27,.96),rgba(3,10,15,.96));border-right:1px solid var(--line);z-index:5}.brand{display:flex;gap:12px;align-items:center;font-weight:900;font-size:24px;letter-spacing:-.04em;margin-bottom:22px}.logo{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--green));color:#021014;box-shadow:0 0 34px rgba(22,255,209,.34)}.brand sup{color:var(--green);font-size:16px}.nav{display:grid;gap:7px}.nav a{display:flex;gap:12px;align-items:center;padding:12px;border-radius:13px;color:#cfe3ea;font-weight:700;border:1px solid transparent}.nav a:hover,.nav a.active{background:linear-gradient(90deg,rgba(22,255,209,.14),rgba(140,255,0,.08));border-color:#1a6c68;color:white}.upgrade{margin-top:18px;padding:16px;border:1px solid rgba(140,255,0,.35);border-radius:18px;background:radial-gradient(circle at 100% 0,rgba(140,255,0,.2),rgba(8,20,14,.92));box-shadow:var(--shadow)}.upgrade h3{margin:0 0 8px;color:var(--green)}.upgrade p{margin:0 0 12px;color:#c8d6dc;font-size:13px;line-height:1.5}.btn{border:0;border-radius:13px;background:linear-gradient(135deg,var(--cyan),var(--green));color:#021014;font-weight:900;padding:12px 16px;cursor:pointer;box-shadow:0 14px 30px rgba(22,255,209,.18)}.btn.dark{background:#0c1b23;color:white;border:1px solid #254552;box-shadow:none}.btn.gold{background:linear-gradient(135deg,#ffcf57,#ff8b2b)}.top{position:sticky;top:0;z-index:4;display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 22px;background:rgba(2,7,11,.82);backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.top nav{display:flex;gap:18px;align-items:center;color:#cce0e7;font-weight:800;font-size:14px}.search{display:flex;align-items:center;gap:8px;background:#071119;border:1px solid #1c3b48;border-radius:13px;padding:9px 12px;min-width:280px;color:#78909b}.profile{display:flex;gap:10px;align-items:center;font-weight:900}.avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#345,#111);border:1px solid #28515d}.content{min-width:0}.hero{margin:18px;min-height:520px;border:1px solid #123744;border-radius:28px;position:relative;overflow:hidden;background:radial-gradient(circle at 68% 35%,rgba(22,255,209,.22),transparent 22%),radial-gradient(circle at 78% 55%,rgba(140,255,0,.18),transparent 18%),linear-gradient(135deg,#07151f,#02070b 62%);box-shadow:var(--shadow)}.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(2,7,11,.85) 0 32%,transparent 64%),repeating-linear-gradient(90deg,transparent 0 80px,rgba(255,255,255,.025) 81px),repeating-linear-gradient(0deg,transparent 0 80px,rgba(255,255,255,.022) 81px)}.hero-inner{position:relative;z-index:1;display:grid;grid-template-columns:420px 1fr 250px;gap:20px;padding:42px}.eyebrow{color:var(--cyan);font-size:13px;font-weight:900;letter-spacing:.25em;text-transform:uppercase}.hero h1{font-size:62px;line-height:.93;margin:14px 0;letter-spacing:-.05em;text-transform:uppercase}.hero h1 span{color:var(--green);text-shadow:0 0 30px rgba(140,255,0,.25)}.hero p{color:#c7d9df;font-size:17px;line-height:1.55}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}.platforms{margin-top:26px;display:flex;gap:18px;align-items:center;color:#cddbe0}.stage{display:flex;align-items:center;justify-content:center;min-height:330px;position:relative}.dragon{font-size:210px;filter:drop-shadow(0 0 36px rgba(22,255,209,.34));animation:float 4s ease-in-out infinite}.plinth{position:absolute;bottom:28px;width:360px;height:34px;border-radius:50%;background:radial-gradient(ellipse,var(--green),rgba(22,255,209,.2) 45%,transparent 72%);filter:blur(2px);opacity:.85}.model-info{align-self:center;background:rgba(4,13,19,.78);border:1px solid #2b5664;border-radius:20px;padding:18px;backdrop-filter:blur(14px);box-shadow:var(--shadow)}.model-info h3{margin:4px 0 12px}.pill{display:inline-flex;align-items:center;gap:6px;border:1px solid #2d5b68;background:rgba(22,255,209,.08);border-radius:999px;padding:7px 10px;color:#cde8ef;font-size:12px;font-weight:900}.pro{background:var(--green);color:#071014;border:0}.info-row{display:flex;justify-content:space-between;border-bottom:1px solid #15313d;padding:9px 0;color:#b8c9d0;font-size:14px}.thumbs{position:absolute;left:420px;right:38px;bottom:28px;display:grid;grid-template-columns:repeat(7,1fr);gap:10px}.thumb{padding:10px;border:1px solid #244a57;border-radius:14px;background:rgba(9,22,30,.78);text-align:center;color:#c7d9df;font-weight:800;font-size:12px}.thumb b{display:block;font-size:30px;margin-bottom:4px}.section{padding:10px 18px 20px}.section-title{display:flex;align-items:end;justify-content:space-between;margin:14px 0}.section h2{font-size:24px;margin:0;text-transform:uppercase;letter-spacing:.05em}.grid{display:grid;gap:14px}.tools{grid-template-columns:repeat(6,1fr)}.card{border:1px solid #183d4b;border-radius:18px;background:linear-gradient(180deg,rgba(10,28,38,.92),rgba(5,13,19,.96));padding:15px;box-shadow:0 10px 36px rgba(0,0,0,.25);position:relative;overflow:hidden}.card:before{content:"";position:absolute;inset:-1px;background:radial-gradient(circle at 78% 0,rgba(22,255,209,.15),transparent 38%);pointer-events:none}.card > *{position:relative}.card h3{margin:8px 0;color:white}.card p{margin:0 0 12px;color:#aFC1c9;line-height:1.45;font-size:14px}.icon-big{font-size:58px;min-height:68px;display:flex;align-items:center}.small-btn{display:inline-block;background:linear-gradient(135deg,var(--cyan),var(--green));color:#061015;font-weight:900;padding:9px 12px;border-radius:10px;font-size:13px}.columns{grid-template-columns:1.1fr 1fr 1.1fr 1fr}.models{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.model-card{border:1px solid #1b3d49;border-radius:14px;background:#07131b;padding:10px;cursor:pointer;transition:.2s}.model-card:hover{transform:translateY(-4px);border-color:var(--cyan)}.model-art{height:82px;border-radius:12px;background:radial-gradient(circle at 50% 35%,rgba(22,255,209,.2),rgba(0,0,0,.18));display:grid;place-items:center;font-size:42px}.model-card b{display:block;margin-top:8px}.price{color:var(--green);font-weight:900}.pricing{grid-template-columns:repeat(5,1fr)}.plan{min-height:210px}.plan .cost{font-size:30px;font-weight:900;margin:8px 0}.stats{grid-template-columns:repeat(6,1fr)}.stat{text-align:center;padding:14px;border-top:1px solid #173946}.stat b{display:block;color:var(--green);font-size:24px}.modal{position:fixed;inset:0;background:rgba(0,0,0,.72);display:none;align-items:center;justify-content:center;z-index:20;padding:20px}.modal.open{display:flex}.modal-box{width:min(780px,100%);border:1px solid #2e6674;border-radius:24px;background:#061019;padding:22px;box-shadow:var(--shadow)}.modal-top{display:flex;justify-content:space-between;gap:12px}.close{background:#12232c;color:white;border:1px solid #315665;border-radius:10px;padding:8px 11px}.modal-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}.preview{border-radius:18px;background:radial-gradient(circle,rgba(22,255,209,.18),rgba(7,19,27,.9));display:grid;place-items:center;font-size:140px;min-height:260px}.footer{margin:24px 18px 0;padding:20px;border-top:1px solid #15313d;color:#9eb4c0;display:flex;justify-content:space-between}.mobile-menu{display:none}.hide-desktop{display:none}@keyframes float{50%{transform:translateY(-12px)}}@media(max-width:1100px){.app{grid-template-columns:1fr}.sidebar{display:none}.top nav,.search,.profile{display:none}.hide-desktop{display:block}.top{padding:14px 18px}.mobile-menu{display:none;position:fixed;inset:82px 14px auto 14px;z-index:30;background:#041017;border:1px solid #23505f;border-radius:22px;padding:16px;box-shadow:var(--shadow)}.mobile-menu.open{display:grid;gap:10px}.mobile-menu a{padding:14px;border-radius:12px;background:#091923;font-weight:900}.hero{margin:0;border-radius:0;min-height:auto}.hero-inner{grid-template-columns:1fr;padding:28px 18px 156px}.hero h1{font-size:48px}.stage{min-height:220px}.dragon{font-size:150px}.plinth{width:250px}.model-info{display:none}.thumbs{left:18px;right:18px;bottom:18px;grid-template-columns:repeat(4,1fr)}.tools,.columns,.pricing,.stats{grid-template-columns:1fr 1fr}.modal-grid{grid-template-columns:1fr}.footer{display:block}.content{padding-bottom:20px}}@media(max-width:640px){.brand{font-size:21px}.logo{width:40px;height:40px}.hero h1{font-size:42px}.hero p{font-size:16px}.actions .btn{width:100%}.tools,.columns,.pricing,.stats{grid-template-columns:1fr}.models{grid-template-columns:1fr 1fr}.thumbs{grid-template-columns:repeat(2,1fr)}.section{padding:8px 14px 18px}.top{position:sticky}.preview{font-size:100px;min-height:200px}}
-  </style>
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
-  <div class="app">
-    <aside class="sidebar">
-      <a class="brand" href="#home"><span class="logo">◆</span><span>SHAPEFORGE<sup>3</sup></span></a>
-      <nav class="nav">
-        <a class="active" href="#home">⌂ Home</a><a href="#studio">🤖 AI Studio</a><a href="#scan">📱 Phone Scan</a><a href="#library">📚 Library</a><a href="#market">🛒 Marketplace</a><a href="#print">🖨️ Print Centre</a><a href="#creator">🏆 Creator Hub</a><a href="#dashboard">📊 Dashboard</a>
-      </nav>
-      <div class="upgrade"><h3>👑 Upgrade to Pro</h3><p>Premium vault, commercial licences, priority scans and print discounts.</p><a class="btn" href="#pricing">Upgrade Now</a></div>
-    </aside>
-    <main class="content">
-      <header class="top">
-        <a class="brand" href="#home"><span class="logo">◆</span><span>ShapeForge<sup>3</sup></span></a>
-        <nav><a href="#studio">AI Studio</a><a href="#library">Library</a><a href="#market">Marketplace</a><a href="#print">Print Centre</a></nav>
-        <div class="search">🔎 Search models, creators, tools...</div><button class="btn hide-desktop" id="menuBtn">Menu</button><div class="profile"><span>🛒</span><span>🔔</span><span class="avatar">C</span><span>Corey <small class="pill pro">PRO</small></span></div>
-      </header>
-      <div class="mobile-menu" id="mobileMenu"><a href="#studio">AI Studio</a><a href="#scan">Phone Scan</a><a href="#library">Library</a><a href="#market">Marketplace</a><a href="#print">Print Centre</a><a href="#pricing">Pricing</a><a href="#dashboard">Dashboard</a></div>
-      <section id="home" class="hero">
-        <div class="hero-inner">
-          <div><div class="eyebrow">AI powered 3D creation</div><h1>Imagine it.<br><span>Create it.</span><br>Print it.</h1><p>The all-in-one AI 3D creation and printing platform. Generate, scan, repair, sell, download or order professional prints.</p><div class="actions"><a class="btn" href="#studio">Start Creating Free</a><a class="btn dark" href="#tools">Explore Features ▶</a></div><div class="platforms">🌐 Web &nbsp; 🤖 Android &nbsp; 🍎 iOS &nbsp; 🪟 Windows &nbsp; 💻 Mac</div></div>
-          <div class="stage"><div class="dragon">🐉</div><div class="plinth"></div></div>
-          <div class="model-info"><span class="pill">AI GENERATED</span> <span class="pill pro">PRO</span><h3>Dragon Guardian</h3><div class="info-row"><span>Polygons</span><b>2.4M</b></div><div class="info-row"><span>Height</span><b>180mm</b></div><div class="info-row"><span>Print Time</span><b>8h 24m</b></div><div class="info-row"><span>Material</span><b>PLA</b></div><button class="btn" onclick="openModel('Dragon Guardian','🐉','PRO model, print ready with support suggestions.')">Preview in 3D</button></div>
-          <div class="thumbs"><div class="thumb"><b>🐉</b>Dragon</div><div class="thumb"><b>🤖</b>Mech</div><div class="thumb"><b>🏎️</b>Car</div><div class="thumb"><b>⚙️</b>Helmet</div><div class="thumb"><b>🏺</b>Vase</div><div class="thumb"><b>🏰</b>Castle</div><div class="thumb"><b>🦾</b>Robot</div></div>
+  <div class="glow glow-a"></div>
+  <div class="glow glow-b"></div>
+
+  <aside class="sidebar">
+    <div class="brand"><span class="mark">S³</span><div><strong>ShapeForge³</strong><small>Project Genesis</small></div></div>
+    <nav>
+      <a class="active" href="#forge">⚒ Forge</a>
+      <a href="#projects">❤️ Projects</a>
+      <a href="#scan">📸 Scan</a>
+      <a href="#library">📚 Library</a>
+      <a href="#print">🖨 Print</a>
+    </nav>
+    <div class="sidebar-card"><b>Decision #013</b><span>Idea → object faster.</span></div>
+    <div class="sidebar-card"><b>Decision #014</b><span>Next step is obvious.</span></div>
+  </aside>
+
+  <main class="app">
+    <header class="topbar">
+      <button id="menuBtn" class="ghost">☰</button>
+      <div class="search">🔎 Search projects, models, creators...</div>
+      <button class="pill">Early Access: AI Free</button>
+    </header>
+
+    <section id="forge" class="hero panel">
+      <div class="hero-copy">
+        <div class="badge">Sprint 2 • 60-Second Journey</div>
+        <h1>What would you like to create today?</h1>
+        <p>Describe an idea. ShapeForge³ creates a project, guides the first steps, checks printability, then gives you one clear next move.</p>
+        <div class="forge-box">
+          <textarea id="ideaInput" placeholder="Example: Make me a wall-mounted Milwaukee battery holder"></textarea>
+          <div class="forge-actions">
+            <button id="forgeBtn" class="primary">✨ Start Forging</button>
+            <button id="exampleBtn" class="secondary">Use example</button>
+          </div>
         </div>
-      </section>
-      <section id="tools" class="section"><div class="section-title"><h2>Powerful Creation & Printing Tools</h2><a class="price" href="#studio">View all</a></div><div class="grid tools"><article id="studio" class="card"><div class="icon-big">🤖</div><h3>AI 3D Studio</h3><p>Text to 3D, image to 3D, repair and optimise.</p><a class="small-btn" href="#dashboard">Launch Studio</a></article><article id="scan" class="card"><div class="icon-big">📱</div><h3>Phone Scan</h3><p>Take photos, record video scan, upload references.</p><label class="small-btn">Start Scan<input type="file" accept="image/*,video/*" capture="environment" hidden onchange="alert('Scan uploaded: '+this.files[0].name)"></label></article><article class="card"><div class="icon-big">✅</div><h3>AI Printability</h3><p>Checks model quality, supports, strength and cost.</p><button class="small-btn" onclick="alert('Printability Score: 98% excellent. Supports: optional. Material: PLA.')">Check Model</button></article><article class="card"><div class="icon-big">🧊</div><h3>Slice & Preview</h3><p>Layer preview, print time and material estimate.</p><a class="small-btn" href="#print">Open Slicer</a></article><article id="print" class="card"><div class="icon-big">🖨️</div><h3>Print Centre</h3><p>Print at home or order professional prints.</p><button class="small-btn" onclick="quote()">Get Quote</button></article><article id="creator" class="card"><div class="icon-big">💰</div><h3>Earn & Sell</h3><p>Upload models, sell designs and earn royalties.</p><a class="small-btn" href="#market">Go to Market</a></article></div></section>
-      <section class="section"><div class="grid columns"><article id="library" class="card"><div class="section-title"><h2>Free Library</h2><a class="price">View all</a></div><p>Basic starter models for everyone.</p><div class="models"><div class="model-card" onclick="openModel('Low Poly Fox','🦊','Free starter file for test printing.')"><div class="model-art">🦊</div><b>Low Poly Fox</b><span class="price">FREE</span></div><div class="model-card" onclick="openModel('Planter Pot','🏺','Free vase mode planter.')"><div class="model-art">🏺</div><b>Planter Pot</b><span class="price">FREE</span></div><div class="model-card" onclick="openModel('R2 Droid','🤖','Free robot style model.')"><div class="model-art">🤖</div><b>R2 Droid</b><span class="price">FREE</span></div><div class="model-card" onclick="openModel('Skull Decor','💀','Free display print.')"><div class="model-art">💀</div><b>Skull Decor</b><span class="price">FREE</span></div></div></article><article class="card"><div class="section-title"><h2>Pro Vault</h2><a class="price">View all</a></div><p>Better models unlock with subscription.</p><div class="models"><div class="model-card" onclick="openModel('Mech Warrior','🤖','Premium articulated model.')"><div class="model-art">🤖</div><b>Mech Warrior</b><span class="price">PRO</span></div><div class="model-card" onclick="openModel('Sports Car','🏎️','Premium automotive display model.')"><div class="model-art">🏎️</div><b>Sports Car</b><span class="price">PRO</span></div><div class="model-card" onclick="openModel('Octopus','🐙','Premium flexible creature.')"><div class="model-art">🐙</div><b>Octopus</b><span class="price">PRO</span></div><div class="model-card" onclick="openModel('Steam Helmet','⚙️','Premium cosplay print.')"><div class="model-art">⚙️</div><b>Steam Helmet</b><span class="price">PRO</span></div></div></article><article id="market" class="card"><div class="section-title"><h2>Marketplace</h2><a class="price">View all</a></div><p>Creators can sell licensed models.</p><div class="models"><div class="model-card" onclick="openModel('Cyberpunk Girl','👩‍🎤','Creator model, licence tracked.')"><div class="model-art">👩‍🎤</div><b>Cyberpunk Girl</b><span class="price">$4.99</span></div><div class="model-card" onclick="openModel('Ancient Guardian','🗿','Creator model.')"><div class="model-art">🗿</div><b>Ancient Guardian</b><span class="price">$6.99</span></div><div class="model-card" onclick="openModel('Sci-Fi Ship','🚀','Creator model.')"><div class="model-art">🚀</div><b>Sci-Fi Ship</b><span class="price">$9.99</span></div><div class="model-card" onclick="openModel('Orc Warrior','🧌','Creator model.')"><div class="model-art">🧌</div><b>Orc Warrior</b><span class="price">$3.99</span></div></div></article><article class="card"><div class="section-title"><h2>Print Stats</h2></div><div class="info-row"><span>Models Printed</span><b>1,248,392</b></div><div class="info-row"><span>Success Rate</span><b>98.6%</b></div><div class="info-row"><span>Filament Used</span><b>23.4t</b></div><div class="info-row"><span>Printers Connected</span><b>12,643</b></div><div class="icon-big">📈</div></article></div></section>
-      <section id="pricing" class="section"><div class="section-title"><h2>Plans For Every Maker</h2></div><div class="grid pricing"><article class="card plan"><h3>Free</h3><div class="cost">$0</div><p>Basic tools, starter models and limited AI.</p><a class="small-btn">Start Free</a></article><article class="card plan"><h3>Pro</h3><div class="cost">$9.99</div><p>Premium vault, advanced tools and priority support.</p><a class="small-btn">Start Trial</a></article><article class="card plan"><h3>Maker</h3><div class="cost">$19.99</div><p>Phone scanning, commercial licences and discounts.</p><a class="small-btn">Start Trial</a></article><article class="card plan"><h3>Studio</h3><div class="cost">$39.99</div><p>Sell models, team tools and API access.</p><a class="small-btn">Start Trial</a></article><article class="card plan"><h3>Enterprise</h3><div class="cost">Custom</div><p>Private cloud, integrations and dedicated support.</p><a class="small-btn">Contact</a></article></div></section>
-      <section id="dashboard" class="section"><div class="grid stats"><div class="stat"><b>1M+</b>Happy Makers</div><div class="stat"><b>10M+</b>Models Created</div><div class="stat"><b>50M+</b>Downloads</div><div class="stat"><b>200+</b>Countries</div><div class="stat"><b>99.9%</b>Uptime</div><div class="stat"><b>Secure</b>Your data is safe</div></div></section>
-      <footer class="footer"><b>ShapeForge³</b><span>AI creation • model vault • marketplace • print centre • creator tools</span></footer>
-    </main>
-  </div>
-  <div class="modal" id="modal"><div class="modal-box"><div class="modal-top"><h2 id="modalTitle">Model</h2><button class="close" onclick="closeModel()">Close</button></div><div class="modal-grid"><div class="preview" id="modalIcon">🐉</div><div><p id="modalText">Print-ready model.</p><div class="info-row"><span>Formats</span><b>STL • OBJ • 3MF</b></div><div class="info-row"><span>Printability</span><b>98%</b></div><div class="info-row"><span>Licence</span><b>Tracked</b></div><div class="actions"><button class="btn" onclick="alert('Demo download started. Connect storage for real STL files.')">Download</button><button class="btn dark" onclick="quote()">Print with ShapeForge</button></div></div></div></div></div>
-  <script>
-    const menuBtn=document.getElementById('menuBtn'), mobileMenu=document.getElementById('mobileMenu'); if(menuBtn){menuBtn.onclick=()=>mobileMenu.classList.toggle('open'); mobileMenu.querySelectorAll('a').forEach(a=>a.onclick=()=>mobileMenu.classList.remove('open'))}
-    function openModel(title,icon,text){document.getElementById('modalTitle').textContent=title;document.getElementById('modalIcon').textContent=icon;document.getElementById('modalText').textContent=text;document.getElementById('modal').classList.add('open')}
-    function closeModel(){document.getElementById('modal').classList.remove('open')}
-    function quote(){const material='PLA';const grams=120;const price=(12+grams*0.08).toFixed(2);alert(`Instant quote\nMaterial: ${material}\nEstimated weight: ${grams}g\nPrint with ShapeForge: $${price}\nNext step: connect checkout and shipping.`)}
-    if('serviceWorker' in navigator){navigator.serviceWorker.register('service-worker.js').catch(()=>{})}
-  </script>
+        <div class="quick-actions">
+          <button data-preset="Scan a broken plastic knob and make a stronger replacement">📸 Scan something</button>
+          <button data-preset="Turn this photo into a printable desk organiser">🖼 Upload image</button>
+          <button data-preset="Repair my STL and make it printable">📁 Upload model</button>
+        </div>
+      </div>
+      <div class="model-card">
+        <div class="dragon">🐉</div>
+        <h3>Live Project Preview</h3>
+        <p id="previewText">Your first project will appear here.</p>
+        <div class="meter"><span id="meterFill"></span></div>
+        <small id="scoreText">Printability score waiting...</small>
+      </div>
+    </section>
+
+    <section class="grid two">
+      <div class="panel progress-panel">
+        <div class="section-title"><span>AI Build Progress</span><b id="statusLabel">Idle</b></div>
+        <ol id="steps" class="steps">
+          <li>🧠 Understanding your idea</li>
+          <li>📐 Designing the first model</li>
+          <li>🖨 Checking printability</li>
+          <li>✨ Preparing your project</li>
+        </ol>
+        <button id="continueBtn" class="primary hidden">Continue Building →</button>
+      </div>
+      <div class="panel principle-panel">
+        <div class="section-title"><span>Founder Rules</span><b>Locked</b></div>
+        <div class="rule"><strong>#013</strong><p>Every feature must reduce the time between an idea and a finished object.</p></div>
+        <div class="rule"><strong>#014</strong><p>The user should never have to wonder what to do next.</p></div>
+        <div class="rule"><strong>#015</strong><p>Photo and video scanning are free.</p></div>
+        <div class="rule"><strong>#016</strong><p>AI is free during Early Access.</p></div>
+      </div>
+    </section>
+
+    <section id="projects" class="panel">
+      <div class="section-title"><span>Continue Building</span><button id="clearProjects" class="mini">Clear demo projects</button></div>
+      <div id="projectGrid" class="projects"></div>
+    </section>
+
+    <section class="grid three">
+      <div id="scan" class="panel feature"><b>📸 Scan</b><p>Photo and video scanning stays free to bring more people into ShapeForge³.</p><button class="secondary">Open Scan</button></div>
+      <div id="library" class="panel feature"><b>📚 Free Vault</b><p>Beginner-friendly originals and licensed models will help users start quickly.</p><button class="secondary">Browse Vault</button></div>
+      <div id="print" class="panel feature"><b>🖨 Print Centre</b><p>One primary action: print my project. Complexity stays behind the curtain.</p><button class="secondary">Print My Project</button></div>
+    </section>
+  </main>
+
+  <script src="assets/app.js"></script>
 </body>
 </html>

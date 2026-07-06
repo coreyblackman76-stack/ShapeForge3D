@@ -1,5 +1,10 @@
-# ShapeForge³ Simple Premium
+# ShapeForge³ Sprint 2 Netlify Drop Build
 
-Reliable single-page premium dashboard build. Upload these files to GitHub root and deploy with Netlify.
+This is the ready-to-upload static build for Netlify Upload Project Files.
 
-Netlify static settings: build command blank, publish directory blank or `/`.
+Upload the contents of this folder:
+- index.html
+- manifest.webmanifest
+- assets/
+
+No build command required.
