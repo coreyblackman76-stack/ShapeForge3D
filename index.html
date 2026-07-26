@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07110f" />
+  <meta name="description" content="ShapeForge³ makes AI-powered 3D creation, scanning and printing simple." />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+  <title>ShapeForge³ | Forge Workspace</title>
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar" aria-label="Main navigation">
+      <a class="brand" href="#home" aria-label="ShapeForge home">
+        <span class="brand-mark">S³</span>
+        <span><strong>ShapeForge³</strong><small>EARLY ACCESS</small></span>
+      </a>
+      <nav>
+        <a class="nav-link active" href="#home"><span>⌂</span> Home</a>
+        <a class="nav-link" href="#forge"><span>✦</span> Forge</a>
+        <a class="nav-link" href="#projects"><span>♥</span> Projects</a>
+        <a class="nav-link" href="#scan"><span>◉</span> Scan</a>
+        <a class="nav-link" href="#library"><span>▦</span> Library</a>
+        <a class="nav-link" href="#print"><span>▣</span> Print Centre</a>
+      </nav>
+      <div class="early-card">
+        <span class="pill">FREE EARLY ACCESS</span>
+        <h3>AI, photo and video tools</h3>
+        <p>Free while we build with the first ShapeForge³ community.</p>
+      </div>
+      <button class="profile-card" type="button"><span class="avatar">CB</span><span><b>Corey</b><small>Founder</small></span><span>›</span></button>
+    </aside>
+
+    <div class="main-area">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuButton" type="button" aria-label="Open menu">☰</button>
+        <label class="search-box"><span>⌕</span><input id="globalSearch" type="search" placeholder="Search projects, models, creators..." /></label>
+        <button class="icon-btn" type="button" aria-label="Notifications">♢</button>
+        <span class="top-avatar">CB</span>
+      </header>
+
+      <main>
+        <section class="hero" id="home">
+          <div class="hero-copy">
+            <span class="eyebrow">PROJECT GENESIS · V3</span>
+            <h1>What are we<br><em>building today?</em></h1>
+            <p>Describe an idea, scan an object, upload a photo or improve a model. ShapeForge³ turns every action into one organised Project.</p>
+            <div class="hero-actions">
+              <a class="btn primary" href="#forge">Start Forging</a>
+              <button class="btn secondary" id="demoButton" type="button">Watch 60-second flow</button>
+            </div>
+            <div class="trust-row"><span>✓ AI free in Early Access</span><span>✓ Photo & video free</span><span>✓ No CAD experience needed</span></div>
+          </div>
+          <div class="hero-visual" aria-label="ShapeForge project preview">
+            <div class="orb orb-one"></div><div class="orb orb-two"></div>
+            <div class="model-stage">
+              <div class="model-cube"><span>S³</span></div>
+              <div class="status-chip chip-a">✓ Printability 94%</div>
+              <div class="status-chip chip-b">◷ Est. print 3h 42m</div>
+              <div class="status-chip chip-c">PLA · 0.20 mm</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="forge">
+          <div class="section-heading"><div><span class="eyebrow">THE 60-SECOND JOURNEY</span><h2>Forge something now</h2></div><span class="section-note">One clear next step</span></div>
+          <div class="forge-grid">
+            <div class="forge-panel">
+              <label for="ideaInput">Describe what you need</label>
+              <textarea id="ideaInput" rows="4" placeholder="Example: Make a strong wall-mounted battery holder for a workshop..."></textarea>
+              <div class="quick-prompts">
+                <button type="button" data-prompt="Create a wall-mounted battery holder with screw holes">Battery holder</button>
+                <button type="button" data-prompt="Design a simple phone stand that prints without supports">Phone stand</button>
+                <button type="button" data-prompt="Create a workshop spanner organiser for a pegboard">Tool organiser</button>
+              </div>
+              <button class="btn primary full" id="forgeButton" type="button">✦ Start Forging</button>
+              <div class="upload-actions">
+                <label class="upload-btn">▧ Upload image<input id="imageUpload" type="file" accept="image/*" hidden></label>
+                <label class="upload-btn">◉ Photo / video<input id="mediaUpload" type="file" accept="image/*,video/*" capture="environment" hidden></label>
+                <label class="upload-btn">▤ Upload model<input id="modelUpload" type="file" accept=".stl,.obj,.3mf" hidden></label>
+              </div>
+            </div>
+            <div class="progress-panel" id="progressPanel">
+              <div class="preview-placeholder" id="previewBox"><span>S³</span><p>Your project preview appears here</p></div>
+              <div class="progress-list">
+                <div class="progress-step"><i></i><span>Understanding your idea</span></div>
+                <div class="progress-step"><i></i><span>Designing the first model</span></div>
+                <div class="progress-step"><i></i><span>Checking printability</span></div>
+                <div class="progress-step"><i></i><span>Preparing your project</span></div>
+              </div>
+              <button class="btn secondary full" id="continueButton" type="button" disabled>Continue Building →</button>
+            </div>
+          </div>
+        </section>
+
+        <section class="section" id="projects">
+          <div class="section-heading"><div><span class="eyebrow">YOUR WORKSHOP</span><h2>Continue building</h2></div><button class="text-button" id="newProjectButton" type="button">+ New Project</button></div>
+          <div class="project-grid" id="projectGrid">
+            <article class="project-card"><div class="project-art art-one">▣</div><div><span class="project-status">READY TO CONTINUE</span><h3>Workshop Battery Rack</h3><p>Edited today · PETG recommended</p></div><button type="button">Open →</button></article>
+            <article class="project-card"><div class="project-art art-two">◉</div><div><span class="project-status">SCAN SAVED</span><h3>Replacement Control Knob</h3><p>12 photos · Quality 91%</p></div><button type="button">Open →</button></article>
+            <article class="project-card"><div class="project-art art-three">⌁</div><div><span class="project-status">PRINT CHECKED</span><h3>Fishing Rod Holder</h3><p>Ready for slicing · 4h 10m</p></div><button type="button">Open →</button></article>
+          </div>
+        </section>
+
+        <section class="section split-section" id="scan">
+          <div><span class="eyebrow">FREE FOR EVERYONE</span><h2>Scan real objects</h2><p>Use photos or video. ShapeForge³ guides the capture, checks coverage and organises everything inside a Project.</p><label class="btn primary inline-upload">Start a Free Scan<input type="file" accept="image/*,video/*" capture="environment" hidden></label></div>
+          <div class="phone-card"><div class="phone-screen"><span>Move around the object</span><div class="scan-ring">84%</div><small>Coverage looks good</small></div></div>
+        </section>
+
+        <section class="section" id="library">
+          <div class="section-heading"><div><span class="eyebrow">DISCOVER</span><h2>Starter library</h2></div><button class="text-button" type="button">View all models →</button></div>
+          <div class="library-grid">
+            <article><div class="library-art">⌂</div><span>FREE</span><h3>Workshop Wall Hook</h3><p>Easy · 42 min</p></article>
+            <article><div class="library-art">▱</div><span>FREE</span><h3>Phone Stand</h3><p>No supports · 1h 15m</p></article>
+            <article><div class="library-art">⚙</div><span>PRO</span><h3>Parametric Gear Set</h3><p>Editable · Commercial</p></article>
+            <article><div class="library-art">♜</div><span>PRO</span><h3>Mechanical Display Bust</h3><p>Premium collection</p></article>
+          </div>
+        </section>
+
+        <section class="section print-section" id="print">
+          <div><span class="eyebrow">FROM SCREEN TO HAND</span><h2>Print Centre</h2><p>Upload a model, choose strength or finish, and receive a simple estimate. Advanced settings stay available without blocking beginners.</p></div>
+          <div class="quote-card"><div><span>Example estimate</span><strong>A$24.80</strong><small>PETG · Standard finish · Australia</small></div><button class="btn primary" type="button">Get a Quote</button></div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>
